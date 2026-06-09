@@ -60,6 +60,18 @@ pipeline {
 	    }
 	  }
 
+	  stage('Run tests') {
+		  when { params.RUN_TESTS }
+		  steps {
+			  script {
+				  sh """
+                    docker pull "${env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}"
+					docker run --rm ${IMAGE}:${TAG} npm test
+				  """
+			  }
+		  }
+	  }
+
 	  stage('Deploy') {
 	    steps {
 	      script {
