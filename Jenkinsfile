@@ -6,7 +6,7 @@ pipeline {
 
 	parameters {
 	  booleanParam(name: 'RUN_TESTS', defaultValue: false)
-	  gitParameter(name: 'BRANCH', type: 'PT_BRANCH', branchFilter: 'origin/(.*)', defaultValue: 'main')
+	  gitParameter(name: 'BRANCH', type: 'PT_BRANCH', branchFilter: 'origin/(.*)', selectedValue: 'DEFAULT',)
 	}
 
 	environment {
@@ -34,7 +34,7 @@ pipeline {
 
 	  stage('Checkout repo') {
 	    steps {
-	      git branch: '${params.BRANCH}', url: 'git@github.com:AnastasiyaGapochkina01/dos-34-app-01.git', credentialsId: 'jenkins-key'
+	      git branch: params.BRANCH, url: 'git@github.com:AnastasiyaGapochkina01/dos-34-app-01.git', credentialsId: 'jenkins-key'
 	    }
 	  }
 
