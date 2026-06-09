@@ -64,9 +64,9 @@ pipeline {
 	    steps {
 	      script {
 	        sshCommand remote: remote, command: """
-              docker pull "{env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}"
+              docker pull "${env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}"
               docker rm "${env.PRJ_NAME}" -f || true
-              docker run -d -it --name "${env.PRJ_NAME}" -p 3000:3000 "{env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}"
+              docker run -d -it --name "${env.PRJ_NAME}" -p 3000:3000 "${env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}"
 	        """
 	      }
 	    }
