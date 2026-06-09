@@ -68,7 +68,7 @@ pipeline {
 			  script {
 				  sh """
                     docker pull "${env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}"
-					docker run --rm ${IMAGE}:${TAG} npm test
+					docker run --rm "${env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}" npm test
 				  """
 			  }
 		  }
