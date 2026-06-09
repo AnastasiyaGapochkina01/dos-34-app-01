@@ -42,7 +42,7 @@ pipeline {
 	    steps {
 	      script {
 	        sh """
-              docker build -t "{env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}" .
+              docker build -t "${env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}" .
 	        """
 	      }
 	    }
@@ -53,7 +53,7 @@ pipeline {
 	      script {
 	        sh """
               docker login -u anestesia01 -p "${env.DOCKER_TOKEN}"
-              docker push "{env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}"
+              docker push "${env.REGISTRY}:${env.PRJ_NAME}-${BUILD_ID}"
               docker logout
 	        """
 	      }
