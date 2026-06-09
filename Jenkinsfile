@@ -61,7 +61,9 @@ pipeline {
 	  }
 
 	  stage('Run tests') {
-		  when { params.RUN_TESTS }
+		  when {
+                expression { return params.RUN_TESTS }
+            }
 		  steps {
 			  script {
 				  sh """
