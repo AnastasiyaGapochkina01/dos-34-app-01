@@ -76,6 +76,7 @@ pipeline {
 	    steps {
 	      script {
 	        sh """
+			  sleep 5
               curl -s -o /dev/null -w "%{http_code}" ${env.HOST}:3000
 	        """
 	      }
