@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   <html lang="ru">
   <head>
     <meta charset="UTF-8">
-    <title>Личный дневник</title>
+    <title>Личный дневник пользователя</title>
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
