@@ -6,7 +6,7 @@ pipeline {
 
 	parameters {
 	  booleanParam(name: 'RUN_TESTS', defaultValue: false)
-	  gitParameter(name: 'BRANCH', type: 'PT_BRANCH', branchFilter: 'origin/(.*)', selectedValue: 'DEFAULT',)
+	  gitParameter(name: 'BRANCH', type: 'PT_BRANCH', branchFilter: 'origin/(.*)', defaultValue: 'main', selectedValue: 'DEFAULT',)
 	}
 
 	environment {
